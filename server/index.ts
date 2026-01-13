@@ -109,8 +109,9 @@ app.get('/api/public/projects', async (_req, res) => {
   try {
     const list = await ProjectModel.find({ published: true, isDeleted: false }).sort({ createdAt: -1 }).lean();
     return res.json(list);
-  } catch {
-    return res.json([]);
+  } catch (error) {
+    console.error('GET /api/public/projects error:', error);
+    return res.status(500).json({ error: 'server_error', details: error?.toString() });
   }
 });
 
@@ -119,8 +120,9 @@ app.get('/api/public/projects/:slug', async (req, res) => {
     const proj = await ProjectModel.findOne({ slug: req.params.slug, published: true, isDeleted: false }).lean();
     if (!proj) return res.status(404).json({ error: 'not_found' });
     return res.json(proj);
-  } catch {
-    return res.status(500).json({ error: 'server_error' });
+  } catch (error) {
+    console.error('GET /api/public/projects/:slug error:', error);
+    return res.status(500).json({ error: 'server_error', details: error?.toString() });
   }
 });
 
@@ -128,8 +130,9 @@ app.get('/api/public/categories', async (_req, res) => {
   try {
     const list = await CategoryModel.find({ isActive: true }).sort({ order: 1, createdAt: -1 }).lean();
     return res.json(list);
-  } catch {
-    return res.json([]);
+  } catch (error) {
+    console.error('GET /api/public/categories error:', error);
+    return res.status(500).json({ error: 'server_error', details: error?.toString() });
   }
 });
 

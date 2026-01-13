@@ -22,6 +22,7 @@ const ProjectDetail = () => {
   const { language } = useLanguage();
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -31,6 +32,7 @@ const ProjectDetail = () => {
         const data = await response.json();
         if (!data || data.error) {
           setProject(null);
+          setError(true);
         } else {
           setProject({
             id: String(data._id),
@@ -42,9 +44,10 @@ const ProjectDetail = () => {
             translations: data.translations
           });
         }
-      } catch (error) {
-        console.error('Error fetching project:', error);
+      } catch (err) {
+        console.error('Error fetching project:', err);
         setProject(null);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -61,7 +64,17 @@ const ProjectDetail = () => {
     );
   }
 
-  if (!project) return <Navigate to="/work" />;
+  if (error || !project) {
+    return (
+      <div className="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h1 className="text-4xl font-black uppercase mb-6">Proje Bulunamadı</h1>
+        <p className="text-gray-500 mb-8">Bu proje artık mevcut değil veya silinmiş.</p>
+        <Link to="/work" className="text-brand-turquoise hover:underline font-black uppercase">
+          Portfolio Sayfasına Dön
+        </Link>
+      </div>
+    );
+  }
 
   const tContent = project.translations[language];
 

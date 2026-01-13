@@ -1,0 +1,8 @@
+{
+  "MONGODB_URI": "mongodb+srv://yakupnuriart_db_user:JUqH9bhrJz6W9bpj@cluster0.abpbiyz.mongodb.net/?appName=Cluster0",
+  "CLOUDINARY_CLOUD_NAME": "dioxxysok",
+  "CLOUDINARY_API_KEY": "467599917147994",
+  "CLOUDINARY_API_SECRET": "MreDdqGF2wiFJ1oQ8IueVg5C004",
+  "HERO_PUBLIC_ID": "abdulhamit-portfolio/acf16rv1phvjvv26yrau",
+  "HERO_URL": "https://res.cloudinary.com/dioxxysok/image/upload/v1767665747/abdulhamit-portfolio/acf16rv1phvjvv26yrau.png"
+}

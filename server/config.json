@@ -1,0 +1,10 @@
+{
+  "MONGODB_URI": "mongodb+srv://yakupnuriart_db_user:JUqH9bhrJz6W9bpj@cluster0.abpbiyz.mongodb.net/?appName=Cluster0",
+  "CLOUDINARY_CLOUD_NAME": "dioxxysok",
+  "CLOUDINARY_API_KEY": "467599917147994",
+  "CLOUDINARY_API_SECRET": "MreDdqGF2wiFJ1oQ8IueVg5C004",
+  "HERO_PUBLIC_ID": "abdulhamit-portfolio/a0ony0xp5d5hirlawje9",
+  "HERO_URL": "https://res.cloudinary.com/dioxxysok/image/upload/v1767657457/abdulhamit-portfolio/a0ony0xp5d5hirlawje9.png",
+  "PIXABAY_API_KEY": "53025356-e092beb7e5a1e1991b4b3c22f",
+  "JWT_SECRET": "ag-admin-secret-01"
+}
